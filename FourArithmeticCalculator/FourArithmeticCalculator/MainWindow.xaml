@@ -1,0 +1,102 @@
+﻿<Window
+    x:Class="FourArithmeticCalculator.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:FourArithmeticCalculator"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="563"
+    Height="403.526"
+    mc:Ignorable="d">
+
+    <Grid>
+        <StackPanel
+            x:Name="CalcuratorParent"
+            Width="497"
+            Height="355"
+            Margin="23,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top">
+            <StackPanel
+                Width="497"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <Label
+                    x:Name="LeftHandSide"
+                    Width="144"
+                    Content="左辺："
+                    FontSize="36" />
+                <TextBox
+                    x:Name="uxLeftValue_"
+                    Width="350"
+                    Height="50"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    FontSize="36"
+                    Text="{Binding Left.Value}"
+                    TextWrapping="Wrap" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label
+                    x:Name="OperatorName"
+                    Width="145"
+                    Content="演算子："
+                    FontSize="36" />
+                <ComboBox
+                    x:Name="FourArithmeticOperator"
+                    Width="350"
+                    Height="50"
+                    FontSize="36"
+                    ItemsSource="{Binding Mode=OneWay, Path=Op.Value}"
+                    SelectedItem="{Binding SelectedOp.Value}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label
+                    x:Name="RightHandSide"
+                    Width="145"
+                    Content="右辺："
+                    FontSize="36" />
+                <TextBox
+                    x:Name="uxRightValue_"
+                    Width="350"
+                    Height="50"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    FontSize="36"
+                    Text="{Binding Right.Value}"
+                    TextWrapping="Wrap" />
+            </StackPanel>
+            <Button
+                x:Name="CalculateResult"
+                Height="50"
+                Margin="58,0,48,0"
+                Command="{Binding CalculateCommand}"
+                Content="計算"
+                FontSize="36" />
+            <StackPanel Orientation="Horizontal">
+                <Label
+                    x:Name="ResultValue"
+                    Width="145"
+                    Content="結果："
+                    FontSize="36" />
+                <TextBox
+                    x:Name="uxResultValue_"
+                    Width="350"
+                    Height="50"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    FontSize="36"
+                    Text="{Binding Result.Value}"
+                    TextWrapping="Wrap" />
+            </StackPanel>
+            <Button
+                x:Name="ShowResult"
+                Height="50"
+                Margin="58,0,48,0"
+                Command="{Binding ShowResultCommand}"
+                Content="表示"
+                FontSize="36" />
+        </StackPanel>
+    </Grid>
+</Window>
